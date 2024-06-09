@@ -29,6 +29,7 @@ android {
         applicationId "is.xyz.omw"
         versionCode 46
         versionName calculateVersion()
+        buildConfigField 'int', 'RANDOMIZER', Math.abs(new Random().nextInt(999));
 
         minSdkVersion 21
         // Do not update past 29 -- see https://github.com/xyzz/openmw-android/issues/30
