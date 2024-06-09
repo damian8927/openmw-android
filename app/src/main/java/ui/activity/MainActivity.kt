@@ -345,6 +345,9 @@ class MainActivity : AppCompatActivity() {
                 .filter { it.enabled }
                 .forEach { output += "groundcover=${it.filename}\n" }
 
+            // force add delta data dir
+            output += "data=" + '"' + Constants.USER_FILE_STORAGE + "/launcher/delta" + '"' + "\n" 
+
             // write everything to openmw.cfg
             File(Constants.OPENMW_CFG).writeText(output)
         } catch (e: IOException) {
