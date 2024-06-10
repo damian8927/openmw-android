@@ -533,10 +533,33 @@ class ModsActivity : AppCompatActivity() {
             R.id.action_tools_groundcoverify -> {
 
 
+    var state = "Groundcoverify plugin is "
+
+    if (File(Constants.USER_FILE_STORAGE + "/launcher/delta/output_groundcover.omwaddon).exists() && 
+        File(Constants.USER_FILE_STORAGE + "/launcher/delta/deleted_groundcover.omwaddon).exists())
+    {
+        state += "generated and "
+
+        var isEnabled = false
+        val lines = File(Constants.USER_CONFIG + "/openmw.cfg").readLines().toMutableList()
+        lines.forEach { 
+            if (it.contains("groundcover=output_groundcover.omwaddon")) 
+                isEnabled = true
+        }
+
+        if (isEnabled) 
+            state += "enabled."
+        else
+            state += "disabled."
+    }
+    else
+        state += "not generated"
+
+		    
 
             AlertDialog.Builder(this)
                 .setTitle("Groundcoverify")
-                .setMessage("Choose Action.")
+                .setMessage(state)
                 .setPositiveButton("Generate") { _, _ ->
                             generateDeltaCfg()
                             runGroundcoverify()
