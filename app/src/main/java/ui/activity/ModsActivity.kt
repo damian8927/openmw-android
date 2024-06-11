@@ -535,8 +535,8 @@ class ModsActivity : AppCompatActivity() {
 
     var state = "Groundcoverify plugin is "
 
-    if (File(Constants.USER_FILE_STORAGE + "/launcher/delta/output_groundcover.omwaddon).exists() && 
-        File(Constants.USER_FILE_STORAGE + "/launcher/delta/deleted_groundcover.omwaddon).exists())
+    if (File(Constants.USER_FILE_STORAGE + "/launcher/delta/output_groundcover.omwaddon").exists() && 
+        File(Constants.USER_FILE_STORAGE + "/launcher/delta/deleted_groundcover.omwaddon").exists())
     {
         state += "generated and "
 
