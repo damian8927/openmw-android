@@ -552,8 +552,9 @@ class ModsActivity : AppCompatActivity() {
         else
             state += "disabled."
     }
-    else
+    else {
         state += "not generated"
+    }
 
 		    
 
